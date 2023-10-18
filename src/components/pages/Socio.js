@@ -2,12 +2,13 @@ import React from "react";
 import "../../App";
 import Footer from '../Footer/Footer.js'
 import NavbarSign from "../NavBars/NavbarSign";
+import Ofertass from "../Maps/Map";
 
 function Socio() {
     return (
         <>
             <NavbarSign/>
-            <h1 className="user">USUARIO</h1>
+            <Ofertass/>
             <Footer/>
         </>
     )

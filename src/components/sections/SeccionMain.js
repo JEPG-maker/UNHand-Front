@@ -23,7 +23,7 @@ function SeccionMain() {
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
-          link= '/Solicitante'
+          link= '/Socio'
         >
           SOLICITAR SERVICIO
         </Button>
