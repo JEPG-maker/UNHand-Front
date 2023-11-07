@@ -1,0 +1,46 @@
+.titulo_tarjeta {
+    margin-top: 40px;
+    font-size: 3rem;
+}
+
+.tarjeta {
+    padding: 0 0 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .container_tarjeta{
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .wrapper_tarjeta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    margin: 50px 0 45px;
+  }
+  
+  .items_tarjeta {
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 5px;
+    align-items: flex-start;
+    margin: 20px 20px 20px 20px;
+    text-align: left;
+    background: #242424;
+    color: white;
+    float: left;
+  }
+
+  .item_tarjeta {
+    font-size: 1.15rem;
+    display: flex;
+    flex: 1;
+    margin: 1rem;
+    border-radius: 100px;
+  }

@@ -1,0 +1,51 @@
+.RU_user_name {
+    font-size: 2rem;
+}
+
+.RU_user_container {
+    margin: 0px;
+    align-items: center;
+    align-self: center;
+    } 
+
+    .RU_top_user {
+        align-items: center;
+        margin: 2rem;
+        }
+        
+        .RU_user_wrapper {
+            
+            border-radius: 50px;
+            text-align: center;
+                }
+        
+                .RU_user_datos {
+                    margin: 1.2rem 0rem 2rem 0rem;
+                    align-content: center;
+                    }
+
+                    .RU_user_data {
+                        font-size: 1.5rem;
+                    }
+
+    .RU_bottom_user {
+        margin: auto;
+        }
+
+        .RU_trab_wrapper {
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            margin: auto auto 2rem auto;
+            width: 50%;
+            border: 1px solid black;
+            padding: 10px;
+            color: white;
+            background-color: black;
+            }
+
+            .RU_trab_data {
+                width: 500px;
+                font-size: 1rem;
+                text-align: left;
+                margin: 4px;
+            }
+
