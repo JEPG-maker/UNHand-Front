@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import './Form.css'
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
+
+
+
 
 var url = process.env.REACT_APP_BACK_URL_REGISTER;
 
 const FormSignup = () => {
+  const navigate = useNavigate();
 
   const [usuario, setUsuario] = useState('');
   const [email, setEmail] = useState('');
@@ -59,7 +64,8 @@ const FormSignup = () => {
             repassword: password2,
             role: rol
         }).then(res => console.log('posting', res))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
+        navigate('/Login')
       }
   }
 

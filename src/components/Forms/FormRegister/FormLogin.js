@@ -1,18 +1,57 @@
 import React, {useState} from 'react'
 import './Form.css';
-import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 var url = 'https://unhandback.onrender.com/api/v1/auth/login';
+var url2 = 'https://unhandback.onrender.com/api/v1/auth/refresh';
+
+async function obtenerNuevoJWT(refreshToken) {
+    const response = await fetch(url2, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer " + refreshToken
+        },
+        body: JSON.stringify({refreshToken})
+    });
+    console.log(response)
+    if (!response.ok) {
+        throw new Error('No se pudo obtener un nuevo JWT')
+    }
+
+    const data = await response.json();
+    console.log(data)
+    return data.accessToken;
+}
+
+async function handleLogin(url, email, password) {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email , password})
+    })
+    
+    if (!response.ok) {
+        throw new Error('Error en la autenticación')
+    }
+    const data = await response.json();
+    console.log(data)
+    const refreshToken = data.token;
+
+    return refreshToken;
+}
 
 const FormLogin = () => {
-
+    const navigate = useNavigate();
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
 
     const [errorUser, setErrorUser] = useState('');
     const [errorPswrd, setErrorPswrd] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
 
         if (!usuario) {
@@ -26,12 +65,13 @@ const FormLogin = () => {
             setErrorPswrd('')
         } if (errorUser === '' & errorPswrd === '') {
             console.log('inicio posting')
-            axios.post(url, {
-                email: usuario,
-                password: password
-            }).then(res => console.log('posting', res))
-            .catch(err => console.log(err))
-          }
+            const token = await handleLogin(url, usuario, password);
+            console.log(token)
+            
+            //const awt = await obtenerNuevoJWT(token)
+            //console.log(awt)
+        } navigate('/Socio')
+
 
     }
 

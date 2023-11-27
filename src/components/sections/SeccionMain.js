@@ -23,9 +23,9 @@ function SeccionMain() {
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
-          link= '/Socio'
+          link= '/CreaTrabajo'
         >
-          SOLICITAR SERVICIO
+          CREAR SERVICIO
         </Button>
       </div>
     </div>
