@@ -11,7 +11,7 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 650px;
+  height: 750px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -53,14 +53,19 @@
   border-radius: 20px;
   }
   .info-btn {
-    width: 60%;
+    width: 10%;
     height: 30px;
-    margin-top: 4px;
+    margin-top: 20px;
     border-radius: 2px;
     background: #fff;
     color: #242424;
     font-size: 1em;
     align-self: center;
+    }
+    .info-btn:hover {
+      cursor: pointer;
+      background: rgb(165, 125, 65) 100%;
+      transition: all 0.4s ease-out;
     }
   .info-label {
     font-size: 1.25em;

@@ -2,12 +2,14 @@ import React from "react";
 import "../../App";
 import Footer from '../Footer/Footer.js'
 import NavbarSign from "../NavBars/NavbarSign";
+import SeccionSolicitante from "../sections/SeccionSolicitante.js";
+
 
 function Solicitante() {
     return (
         <>
             <NavbarSign/>
-            <h1 className="solicitante">SOLICITANTE</h1>
+            <SeccionSolicitante/>
             <Footer/>
         </>
     )

@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import './Form.css'
+import axios from 'axios';
+
+var url = process.env.REACT_APP_BACK_URL_REGISTER;
 
 const FormSignup = () => {
 
@@ -8,6 +11,7 @@ const FormSignup = () => {
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [tipo, setTipo] = useState('')
+  const [rol, setRol] = useState('')
 
   const [errorUser, setErrorUser] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
@@ -16,13 +20,19 @@ const FormSignup = () => {
 
   const handleSubmit = (e) => {
       e.preventDefault()
+      if (tipo === 'Socio') {
+        setRol('JobSeeker')
+      }
 
+      if (tipo === 'Prestador de servicio') {
+        setRol('JobPoster')
+      }
       if (!usuario) {
           setErrorUser(<p className='required'>El nombre de usuario es requerido</p>)
       } else {
         setErrorUser('')
       }
-      if(!email) {
+      if (!email) {
           setErrorEmail(<p className='required'>El email es requerido</p>)
       } else if (!/\S+@\S+\.\S+/.test(email)) {
           setErrorEmail(<p className='required'>El email es inválido</p>)
@@ -34,18 +44,23 @@ const FormSignup = () => {
       } else {
         setErrorPswrd('')
       }
-      if(!password2) {
+      if (!password2) {
         setErrorPswrd2(<p className='required'>La contraseña es requerida</p>)
     } else if (password2 !== password) {
       setErrorPswrd2(<p className='required'>Las contraseñas no coinciden</p>)
     } else {
         setErrorPswrd2('')
+      } if (errorUser === '' & errorEmail === '' & errorPswrd === '' & errorPswrd2 === ''){
+        console.log('inicio posting')
+        axios.post(url, {
+            userName: usuario,
+            email: email,
+            password: password,
+            repassword: password2,
+            role: rol
+        }).then(res => console.log('posting', res))
+        .catch(err => console.log(err))
       }
-
-      console.log("usuario:"+usuario)
-      console.log('email:'+email)
-      console.log('contraseña:'+ password)
-      console.log('Tipo de usuario:'+tipo)
   }
 
   return (
@@ -66,13 +81,13 @@ const FormSignup = () => {
                     </div>
                     <div className='form-inputs'>
                         <label className='form-label'>Contraseña</label>
-                        <input placeholder='Ingrese su contraseña' className='form-input' type='text' id='password' name='contraseña' value={password} 
+                        <input placeholder='Ingrese su contraseña' className='form-input' type='password' id='password' name='contraseña' value={password} 
                         onChange={ (e) => setPassword(e.target.value)}/>
                         {errorPswrd}
                     </div>
                     <div className='form-inputs'>
                         <label className='form-label'>Confirmar Contraseña</label>
-                        <input placeholder='Ingrese su contraseña' className='form-input' type='text' id='password2' name='contraseña2' value={password2} 
+                        <input placeholder='Ingrese nuevamente su contraseña' className='form-input' type='password' id='password2' name='contraseña2' value={password2} 
                         onChange={ (e) => setPassword2(e.target.value)}/>
                         {errorPswrd2}
                     </div>

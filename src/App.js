@@ -8,6 +8,7 @@ import Solicitante from './components/pages/Solicitante';
 import Historial from './components/pages/Historial';
 import RateUser from './components/pages/RateUser.js';
 import RateSocio from './components/pages/RateSocio.js';
+import CreaTrabajo from './components/pages/CreaTrabajo.js';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Historial' exact Component={Historial} />
         <Route path='/RatingUser' exact Component={RateUser} />
         <Route path='/RatingSocio' exact Component={RateSocio} />
+        <Route path='/CreaTrabajo' exact Component={CreaTrabajo} />
       </Routes>
     </Router>
     </>

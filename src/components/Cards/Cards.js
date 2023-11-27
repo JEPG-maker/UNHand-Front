@@ -13,19 +13,19 @@ function Cards() {
                 src="images/trabajo1.jpg"
                 text="Encuentra alguien para la labor que necesitas."
                 label="Ofrece empleo"
-                path= '/Solicitante'
+                
                 />
                 <CardItem 
                 src="images/trabajo2.jpg"
                 text="Agenda de forma flexible la labor que buscas."
                 label="A tus tiempos"
-                path= '/Solicitante'
+                
                 />
                 <CardItem 
                 src="images/trabajo3.jpg"
                 text="Genera ingresos trabajando con nosotros"
                 label="Ofrece tus habilidades"
-                path= '/Login'
+                
                 />
             </ul>
         </div>

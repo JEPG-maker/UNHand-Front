@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import './Form.css';
+import axios from 'axios';
 
+var url = 'https://unhandback.onrender.com/api/v1/auth/login';
 
 const FormLogin = () => {
 
@@ -22,10 +24,15 @@ const FormLogin = () => {
             setErrorPswrd(<p className='required'>La contraseña es requerida</p>)
         } else {
             setErrorPswrd('')
+        } if (errorUser === '' & errorPswrd === '') {
+            console.log('inicio posting')
+            axios.post(url, {
+                email: usuario,
+                password: password
+            }).then(res => console.log('posting', res))
+            .catch(err => console.log(err))
           }
 
-        console.log("usuario:"+usuario)
-        console.log('contraseña:'+ password)
     }
 
   return (
@@ -34,14 +41,14 @@ const FormLogin = () => {
                 <form className='form'>
                     <h1>Ingresa con los datos de tu cuenta</h1>
                     <div className='form-inputs'>
-                        <label className='form-label'>Usuario</label>
-                        <input placeholder='Ingrese su nombre de usuario' className='form-input' type='text' id='usuario' name='usuario' value={usuario} 
+                        <label className='form-label'>Email</label>
+                        <input placeholder='Ingrese su correo' className='form-input' type='text' id='usuario' name='usuario' value={usuario} 
                         onChange={ (e) => setUsuario(e.target.value)}/>
                         {errorUser}
                     </div>
                     <div className='form-inputs'>
                         <label className='form-label'>Constraseña</label>
-                        <input placeholder='Ingrese su contraseña' className='form-input' type='text' id='password' name='contraseña' value={password} 
+                        <input placeholder='Ingrese su contraseña' className='form-input' type='password' id='password' name='contraseña' value={password} 
                         onChange={ (e) => setPassword(e.target.value)}/>
                         {errorPswrd}
                     </div>

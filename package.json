@@ -48,6 +48,7 @@
     "@react-google-maps/api": "^2.19.2",
     "@types/google.maps": "^3.54.3",
     "@ubilabs/google-maps-react-hooks": "^2.0.2",
+    "axios": "^1.6.2",
     "dotenv": "^16.3.1",
     "react-router-dom": "^6.16.0",
     "webpack": "^5.89.0",
